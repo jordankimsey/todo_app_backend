@@ -29,3 +29,5 @@ mongoose
     app.listen(process.env.PORT);
   })
   .catch((err) => console.log(err));
+
+  module.exports = app;
