@@ -10,6 +10,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const app = express();
 
+app.use(cors());
 app.use(bodyParser.json());
 // app.use((req, res, next) => {
 //   res.setHeader('Access-Control-Allow-Orgin', '*');
@@ -31,3 +32,15 @@ mongoose
   .catch((err) => console.log(err));
 
   module.exports = app;
+
+//     "headers": [
+//     {
+//       "source": "/(.*)",
+//       "headers": [
+//         { "key": "Access-Control-Allow-Credentials", "value": "true" },
+//         { "key": "Access-Control-Allow-Origin", "value": "*" },
+//         { "key": "Access-Control-Allow-Methods", "value": "GET,OPTIONS,PATCH,DELETE,POST,PUT" },
+//         { "key": "Access-Control-Allow-Headers", "value": "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version" }
+//       ]
+//     }
+//   ]
