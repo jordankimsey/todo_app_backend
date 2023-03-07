@@ -29,7 +29,7 @@ exports.addTodo = (req, res, next) => {
   newTodo
     .save()
     .then((result) => {
-      res.status(201).json({ message: 'New todo successfully saved!' });
+      res.status(201).json({ message: 'New todo successfully saved!', result });
     })
     .catch((err) => {
       res.status(400).json({ message: 'Something went wrong!', err });
