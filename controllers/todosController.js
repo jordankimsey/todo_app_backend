@@ -29,7 +29,10 @@ exports.addTodo = (req, res, next) => {
   newTodo
     .save()
     .then((result) => {
-      res.status(201).json({ message: 'New todo successfully saved!', result });
+      return Todo.find();
+    })
+    .then((todos) => {
+      res.status(201).json({ message: 'New todo successfully saved!', todos });
     })
     .catch((err) => {
       res.status(400).json({ message: 'Something went wrong!', err });
@@ -99,9 +102,6 @@ exports.updateTodo = (req, res, next) => {
         .json({ message: 'Successfully updated todo', todos: result });
     })
     .catch((err) => {
-      res.status(400).json({message: 'Something went wrong!', err})
-     
-    }
-      );
-    
+      res.status(400).json({ message: 'Something went wrong!', err });
+    });
 };
