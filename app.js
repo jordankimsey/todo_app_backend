@@ -23,7 +23,7 @@ app.use(todoRoutes);
 
 mongoose.set('strictQuery', false);
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGODB_URI)
   .then((result) => {
     console.log(`App running on port ${process.env.PORT}`);
     app.listen(process.env.PORT);
